@@ -9801,6 +9801,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-table@npm:^7.7.0":
+  version: 7.7.0
+  resolution: "react-table@npm:7.7.0"
+  peerDependencies:
+    react: ^16.8.3 || ^17.0.0-0
+  checksum: a679edecc76d3e51311b095528395b38ac85a1ffa371716bea01559a5fdc75af9a6abb9bb907c63190c8e77da22b11f7b05065b3a45d190d8f43cb83e4366206
+  languageName: node
+  linkType: hard
+
 "react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
@@ -10684,6 +10693,7 @@ __metadata:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-scripts: 5.0.0
+    react-table: ^7.7.0
     web-vitals: ^2.1.3
   languageName: unknown
   linkType: soft

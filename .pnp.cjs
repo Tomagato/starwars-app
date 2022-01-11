@@ -44,6 +44,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:72ea767e63aa996c31ab0369fd083dd7632cd613401fdfa56c3b9287fb559ea3b6739f4636e6a272232049d271bc7901676688d95065b58924e75d1d799d1f08#npm:17.0.2"],
             ["react-scripts", "virtual:72ea767e63aa996c31ab0369fd083dd7632cd613401fdfa56c3b9287fb559ea3b6739f4636e6a272232049d271bc7901676688d95065b58924e75d1d799d1f08#npm:5.0.0"],
+            ["react-table", "virtual:72ea767e63aa996c31ab0369fd083dd7632cd613401fdfa56c3b9287fb559ea3b6739f4636e6a272232049d271bc7901676688d95065b58924e75d1d799d1f08#npm:7.7.0"],
             ["web-vitals", "npm:2.1.3"]
           ],
           "linkType": "SOFT",
@@ -13567,6 +13568,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["react-table", [
+        ["npm:7.7.0", {
+          "packageLocation": "./.yarn/cache/react-table-npm-7.7.0-95e9357cd2-a679edecc7.zip/node_modules/react-table/",
+          "packageDependencies": [
+            ["react-table", "npm:7.7.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:72ea767e63aa996c31ab0369fd083dd7632cd613401fdfa56c3b9287fb559ea3b6739f4636e6a272232049d271bc7901676688d95065b58924e75d1d799d1f08#npm:7.7.0", {
+          "packageLocation": "./.yarn/__virtual__/react-table-virtual-25f223ec0d/0/cache/react-table-npm-7.7.0-95e9357cd2-a679edecc7.zip/node_modules/react-table/",
+          "packageDependencies": [
+            ["react-table", "virtual:72ea767e63aa996c31ab0369fd083dd7632cd613401fdfa56c3b9287fb559ea3b6739f4636e6a272232049d271bc7901676688d95065b58924e75d1d799d1f08#npm:7.7.0"],
+            ["@types/react", null],
+            ["react", "npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@types/react",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["readable-stream", [
         ["npm:2.3.7", {
           "packageLocation": "./.yarn/cache/readable-stream-npm-2.3.7-77b22a9818-e4920cf754.zip/node_modules/readable-stream/",
@@ -14545,6 +14568,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:72ea767e63aa996c31ab0369fd083dd7632cd613401fdfa56c3b9287fb559ea3b6739f4636e6a272232049d271bc7901676688d95065b58924e75d1d799d1f08#npm:17.0.2"],
             ["react-scripts", "virtual:72ea767e63aa996c31ab0369fd083dd7632cd613401fdfa56c3b9287fb559ea3b6739f4636e6a272232049d271bc7901676688d95065b58924e75d1d799d1f08#npm:5.0.0"],
+            ["react-table", "virtual:72ea767e63aa996c31ab0369fd083dd7632cd613401fdfa56c3b9287fb559ea3b6739f4636e6a272232049d271bc7901676688d95065b58924e75d1d799d1f08#npm:7.7.0"],
             ["web-vitals", "npm:2.1.3"]
           ],
           "linkType": "SOFT",
