@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 
 
 export default function BasicTable(props) {
-  console.log(props.prop)
+  console.log(props)
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -23,7 +23,7 @@ export default function BasicTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {props.prop.map((row) => (
+          {props.vehicleDetails.map((row) => (
             <TableRow
               key={row.vehicleName}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -31,9 +31,9 @@ export default function BasicTable(props) {
               <TableCell component="th" scope="row">
                 {row.vehicleName}
               </TableCell>
-              <TableCell align="right">{row.planet.map((obj, index)=> obj.planetName.concat(` ,`))}</TableCell>
-              <TableCell align="right">{row.planet.map(obj=> obj.population)}</TableCell>
-              <TableCell align="right">{row.pilotNames.map(pilot => pilot)}</TableCell>
+              <TableCell align="right">{row.planet.map((obj, index)=> " " + obj.planetName)}</TableCell>
+              <TableCell align="right">{row.planet.map(obj=> " " + obj.population)}</TableCell>
+              <TableCell align="right">{row.pilotNames.map(pilot =>  " " + pilot)}</TableCell>
               <TableCell align="right">{row.sumPoplulation}</TableCell>
             </TableRow>
           ))}

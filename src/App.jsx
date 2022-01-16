@@ -1,7 +1,8 @@
 import './App.css';
 import Table from './components/table/Table';
+import PopulationBarChart from './components/populationBarChart/PopulationBarChart';
 import SingleVehicle from './components/singleVehicle/SingleVehicle';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 function App() {
@@ -14,12 +15,21 @@ function App() {
       sumPoplulation: 0,
     },
   ]);
+  const [loader, setLoader] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
-
-  const [fivePlanets, setfivePlanets] = useState([]);
+  const [fivePlanetsDetails, setFivePlanetsDetails] = useState([]);
   const [error, setError] = useState(null);
+  const [activeComponent, setActiveComponent] = useState('Table');
 
   const NUM_ITEMS_ARRAY = 10;
+
+  const modifyActiveComponent = useCallback(
+    (newActiveComponent) => {
+      setActiveComponent(newActiveComponent);
+    },
+    [setActiveComponent]
+  );
 
   const get_pilotes = async (url_arr) => {
     const promise_arr = url_arr.map((url) => {
@@ -32,7 +42,7 @@ function App() {
     console.log(vehicles);
     await axios('https://swapi.py4e.com/api/vehicles/?page=1')
       .then(async (response) => {
-        // calculation to count how many pages we need to iterate over 
+        // calculation to count how many pages we need to iterate over
         const pageCount = Math.ceil(
           Number(response.data.count) / NUM_ITEMS_ARRAY
         );
@@ -146,9 +156,9 @@ function App() {
 
   useEffect(async () => {
     const planetsArray = ['Tatooine', 'Alderaan', 'Naboo', 'Bespin', 'Endor'];
-    await axios('https://swapi.py4e.com/api/planets/')
-      .then(async (response) => {
-        // calculation to count how many pages we need to iterate over 
+    await axios('https://swapi.py4e.com/api/planets/').then(
+      async (response) => {
+        // calculation to count how many pages we need to iterate over
         const pageCount = Math.ceil(
           Number(response.data.count) / NUM_ITEMS_ARRAY
         );
@@ -160,19 +170,47 @@ function App() {
 
         //returns promise array
         const promise_arr = page_index_arr.map(async (n) => {
-          return await axios(`https://swapi.py4e.com/api/vehicles/?page=${n}`);
+          return await axios(`https://swapi.py4e.com/api/planets/?page=${n}`);
         });
 
         const res_arr = await Promise.all(promise_arr);
-        console.log(res_arr)
-      })
+        const planets_arr = res_arr
+          .map((data_arr) => data_arr.data.results)
+          .flat()
+          .filter((planet) => planetsArray.includes(planet.name));
+        setFivePlanetsDetails(planets_arr);
+        setLoader(true);
+      }
+    );
   }, []);
 
   return (
-    <div className='App'>
-    <SingleVehicle vehicleDetails={vehicleTable[0]}/>
-      {/* <Table prop={vehicleTable} /> */}
-    </div>
+    <>
+      <div className='flex mb-0 items-center'>
+        <h2
+          onClick={() => modifyActiveComponent('Table')}
+          className='capitalize tracking-tight text-4xl mt-16 mr-8 md:mt-24 font-black hvr-underline-from-left pb-1'
+        >
+          Full Table
+        </h2>
+        <h2
+          onClick={() => modifyActiveComponent('vehicle')}
+          className='capitalize tracking-tight text-4xl mt-16 md:mt-24 font-black text-gray-400 hvr-underline-from-left pb-1'
+        >
+          Highest vehicle sum
+        </h2>
+      </div>
+      {activeComponent === 'Table' && <Table vehicleDetails={vehicleTable} />}
+      {activeComponent === 'vehicle' && (
+        <SingleVehicle vehicleDetails={vehicleTable[0]} />
+      )}
+
+      <div className='App'>
+        {loader && (
+          <PopulationBarChart fiveplanetsdetails={fivePlanetsDetails} />
+        )}
+      </div>
+    </>
   );
 }
 export default App;
