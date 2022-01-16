@@ -1,11 +1,14 @@
+### `npm install --global yarn`
 
+run this command in folder terminal to install package manager
+
+### `yarn install`
+
+install the required dependencies
 
 ### `yarn start`
 
-run command at the folder terminal and go to http://localhost:3000
-
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+run command and go to http://localhost:3000
 
 ### 'Toggle'
 
