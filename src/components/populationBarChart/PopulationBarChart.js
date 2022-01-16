@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from 'react'
 
 const Canvas = props => {
   
-  console.log(props)
   const canvasRef = useRef(null)
   
   const draw = (ctx, frameCount) => {
@@ -20,8 +19,6 @@ const Canvas = props => {
     const width = 50;
     let currX = 50;
     const base = 200;
-    console.log(namesArray)
-    console.log(populationsArray)
     for (var i=0; i<namesArray.length; i++){
       const h = Math.log(populationsArray[i])*10
       ctx.fillRect(currX, canvas.height - h, width, h);

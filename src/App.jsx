@@ -39,7 +39,6 @@ function App() {
   };
 
   useEffect(async () => {
-    console.log(vehicles);
     await axios('https://swapi.py4e.com/api/vehicles/?page=1')
       .then(async (response) => {
         // calculation to count how many pages we need to iterate over
